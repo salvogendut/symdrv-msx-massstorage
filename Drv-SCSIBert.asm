@@ -53,8 +53,9 @@
 ;  which does that same 32bit add. Only affects SCSI ID 0 (Bert table);
 ;  SCSIPARMBR (any other ID) was already correct and is untouched.
 ;- v1.4 metadata correction - SMD3 storage type 3 is SCSI. Type 4 is not a
-;  valid SymbOS MSX 4.0 storage type and made SymSetup show the SD-card-slot
-;  question. The three-byte SCSISLT field remains because it is part of the
+;  valid SymbOS MSX 4.0 storage type. SymSetup 4.0 reuses its SD-card-slot
+;  wording for the type-3 channel selection; that text is not part of this
+;  driver. The three-byte SCSISLT field remains because it is part of the
 ;  driver ABI, but this I/O-mapped driver never reads it.
 
 ;This driver reads the on-disk partition table in one of two formats,

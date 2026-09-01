@@ -15,8 +15,9 @@ driver does not use it because the controller is I/O-mapped. It is unrelated
 to the SD card slot selection used by SD Mapper drivers.
 
 The SMD3 type and driver-ID metadata both identify this as storage type `3`
-(SCSI). Storage type `2` is SD. Keeping the Bert driver as type `3` prevents
-SymSetup from asking the user to choose SD card slot 1 or 2.
+(SCSI). Storage type `2` is SD. SymSetup 4.0 nevertheless displays its
+SD-slot wording while it asks for the channel of a type-3 device. This text is
+part of SymSetup, not the driver; choose slot 1 for SCSI target ID 0.
 
 ## Disks and targets
 
@@ -30,7 +31,9 @@ SymSetup from asking the user to choose SD card slot 1 or 2.
 
 Assemble `Drv-SCSIBert1.asm` in the normal SymbOS MSX source-tree layout. The
 wrapper expects `SymbOS-File-Const.asm` one directory above the driver source
-and writes `-SCBERT.DRV` to the standard MSX output directory.
+and writes `SCBRT30.DRV` to the standard MSX output directory. The seven-byte
+base name fits MSX-DOS 8.3 filenames and identifies the `30h` port build without
+creating a `~1` alias.
 
 The `30h` build was verified with 86 relocation entries in the 1983 emulator:
 SymbOS 4.0 booted with 512 KB RAM, read its system files through the SCSI
