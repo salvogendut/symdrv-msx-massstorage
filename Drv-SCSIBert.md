@@ -31,9 +31,9 @@ part of SymSetup, not the driver; choose slot 1 for SCSI target ID 0.
 
 Assemble `Drv-SCSIBert1.asm` in the normal SymbOS MSX source-tree layout. The
 wrapper expects `SymbOS-File-Const.asm` one directory above the driver source
-and writes `SCBRT30.DRV` to the standard MSX output directory. The seven-byte
-base name fits MSX-DOS 8.3 filenames and identifies the `30h` port build without
-creating a `~1` alias.
+and writes `-SCBRT30.DRV` to the standard MSX output directory. The eight-byte
+base name fits MSX-DOS 8.3 filenames, follows the SymbOS driver naming
+convention, and identifies the `30h` port build without creating a `~1` alias.
 
 The `30h` build was verified with 86 relocation entries in the 1983 emulator:
 SymbOS 4.0 booted with 512 KB RAM, read its system files through the SCSI
